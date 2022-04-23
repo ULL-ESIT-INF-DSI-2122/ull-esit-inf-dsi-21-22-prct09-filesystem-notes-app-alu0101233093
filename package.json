@@ -1,0 +1,29 @@
+{
+  "name": "p9",
+  "version": "1.0.0",
+  "description": "**Asignatura:** Desarrollo de sistemas informáticos  \r **Nombre:** Leonardo Alfonso Cruz Rodríguez \r **Correo:** alu0101233093@ull.edu.es",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "doc": "typedoc",
+    "coverage": "nyc npm test && nyc report --reporter=lcov"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "chai": "^4.3.6",
+    "coveralls": "^3.1.1",
+    "eslint": "^8.14.0",
+    "eslint-config-google": "^0.14.0",
+    "mocha": "^9.2.2",
+    "nyc": "^15.1.0",
+    "ts-node": "^10.7.0",
+    "typedoc": "^0.22.15",
+    "typescript": "^4.6.3"
+  }
+}
