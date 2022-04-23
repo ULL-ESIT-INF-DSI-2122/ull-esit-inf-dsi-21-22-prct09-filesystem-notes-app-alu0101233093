@@ -4,7 +4,8 @@
 **Correo:** alu0101233093@ull.edu.es
 
 [![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-alu0101233093/badge.svg?branch=main)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-alu0101233093?branch=main)
-
+[![Node.js CI](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-alu0101233093/actions/workflows/node.js.yml/badge.svg)](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-alu0101233093/actions/workflows/node.js.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ULL-ESIT-INF-DSI-2122_ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-alu0101233093&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ULL-ESIT-INF-DSI-2122_ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-alu0101233093)
 
 ## Índice
 - [Creación del directorio de trabajo y tareas previas](#id0)
@@ -348,9 +349,9 @@ name: Sonar-Cloud
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   sonarcloud:
@@ -375,16 +376,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 ```
-**¡Importante!** Se deberá cambiar el nombre de las ramas dentro del fichero en caso de que sea necesario.
 
 El paso siguiente sería crear el fichero `sonar-project.properties` y pegar el contenido dado por la página. Modificandolo un poco quedaría de la siguiente manera:
 
 ```properties
-sonar.projectKey=ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-alu0101233093
+sonar.projectKey=ULL-ESIT-INF-DSI-2122_ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-alu0101233093
 sonar.organization=ull-esit-inf-dsi-2122
 
 # This is the name and version displayed in the SonarCloud UI.
-sonar.projectName=github-actions-sonar-cloud
+sonar.projectName=ull-esit-inf-dsi-21-22-prct09-filesystem-notes-app-alu0101233093
 sonar.projectVersion=1.0
 
 # Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
