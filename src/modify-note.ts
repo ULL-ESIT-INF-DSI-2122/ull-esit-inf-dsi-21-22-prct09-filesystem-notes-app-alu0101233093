@@ -9,7 +9,7 @@ import { accessSync, constants, writeFileSync, mkdirSync } from 'fs';
  * @param content Contenido de la nota
  * @returns Mensaje con el resultado de la modificación
  */
-export function addNote(user: string, title: string, color: string, content: string): string{
+export function modifyNote(user: string, title: string, color: string, content: string): string{
   try {     // Si existe la nota
     accessSync('notes/' + user + '/' + title + '.json', constants.R_OK | constants.W_OK);
 

@@ -1,7 +1,10 @@
 {
     "entryPoints": [
-        "./src/ejemplo-1",
-        "./src/ejemplo-2"
+        "./src/add-note.ts",
+        "./src/list-notes.ts",
+        "./src/modify-note.ts",
+        "./src/read-note.ts",
+        "./src/remove-note.ts"
     ],
     "out": "./docs"
 }

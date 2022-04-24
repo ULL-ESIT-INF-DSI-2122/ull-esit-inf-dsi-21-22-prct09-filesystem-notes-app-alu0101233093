@@ -18,14 +18,6 @@ function printColor(text: string, color: string): string{
         case 'Magenta': return chalk.magenta(text);
         case 'Cyan': return chalk.cyan(text);
         case 'White': return chalk.white(text);
-        case 'BlackBright': return chalk.blackBright(text);
-        case 'RedBright': return chalk.redBright(text);
-        case 'GreenBright': return chalk.greenBright(text);
-        case 'YellowBright': return chalk.yellowBright(text);
-        case 'BlueBright': return chalk.blueBright(text);
-        case 'MagentaBright': return chalk.magentaBright(text);
-        case 'CyanBright': return chalk.cyanBright(text);
-        case 'WhiteBright': return chalk.whiteBright(text);
         default: return text;
     }
 }

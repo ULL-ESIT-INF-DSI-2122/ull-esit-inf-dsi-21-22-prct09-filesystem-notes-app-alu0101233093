@@ -13,8 +13,8 @@ export function listNotes(user: string): string{
       let notes: string[] = readdirSync('notes/' + user);
       let result: string;
 
-      result = "Your notes:\n";
-      notes.forEach(n => result += n + '\n');
+      result = "Your notes\n";
+      notes.forEach(n => result += n.slice(0,n.indexOf('.')) + '\n');
       return result;
 
     } catch (err) { // Si la nota no existe
