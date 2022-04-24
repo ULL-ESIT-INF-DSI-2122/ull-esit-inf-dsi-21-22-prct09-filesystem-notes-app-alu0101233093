@@ -7,7 +7,7 @@ import { accessSync, constants, readdirSync } from 'fs';
  * @returns Lista de notas o mensaje de error
  */
 export function listNotes(user: string): string{ 
-    try {     // Si la nota existe
+    try {     // Si el usuario
 
       accessSync('notes/' + user , constants.R_OK | constants.W_OK);
       let notes: string[] = readdirSync('notes/' + user);
@@ -17,7 +17,7 @@ export function listNotes(user: string): string{
       notes.forEach(n => result += n.slice(0,n.indexOf('.')) + '\n');
       return result;
 
-    } catch (err) { // Si la nota no existe
+    } catch (err) { // Si el usuario no
       return chalk.red("User not found");
     }
 }

@@ -399,3 +399,98 @@ sonar.javascript.lcov.reportPath=coverage/lcov.info
 
 Y ya estaría configurada la `Gihub Actions` de `Sonar Cloud`. Por último, para añadir el badge a la documentación del proyecto, nos dirigiremos al apartado de información
 abajo a la izquierda y copiaremos el badge.
+
+## Uso de yargs<a name="id1"></a>
+Para la utilización del programa se utilizará el paquete `yargs`, que permite introducir argumentos por linea de comandos.
+
+La estructura principal de un comando es la siguiente:  
+```typescript
+yargs.command({
+    command: 'comando',
+    describe: 'ejecuta un comando',
+    builder: {
+      arg1: {
+        describe: 'primer argumento',
+        demandOption: true,
+        type: 'string',
+      },
+      title: {
+        describe: 'segundo argumento',
+        demandOption: true,
+        type: 'string',
+      }
+    },
+    handler(argv) {
+      if(typeof argv.arg1 === 'string' && typeof argv.arg2 === 'string')
+        // función
+    }
+});
+```
+
+De tal manera que para usar el comando anterior se escribiría lo siguiente por consola:
+```bash
+node dist/src/index.js comando --arg1=argumento1 --arg2=argumento2
+```
+
+Para utilizar las funciones de este ejercicio se ejecutará siempre el archivo `dist/src/index.js` con el comando que se desee ejecutar, dicho comando llamará
+a la función deseada y ejecutará el código de la misma.
+
+## Función addNote()<a name="id1"></a>
+Para añadir una nota, obligatoriamente se debe pasar por parámetro el `user` (escritor), `title` (título),
+`color` (color) y `body` (contenido).
+
+Si el usuario está registrado se añade la nota a su directorio previamente creado.
+En caso contrario se crea el directorio y se añade la nota.
+Al final, la función devolverá una cadena indicando si se añadió la nota correctamente.
+
+Ejemplo de uso:
+```
+node dist/src/index.js add --user="edusegre" --title="Red note" --body="This is a red note" --color="red"
+```
+
+## Función listNotes()<a name="id2"></a>
+Para listar las notas de un usuario, evidentemente, se pedirá obligatoriamente el nombre del usuario.
+Si el usuario existe se almacenará en `result` las notas que tienen quitandoles la extensión `.json` y se devolverá dicha variable.
+Al final la función devolverá `result` si se logró encontrar al usuario, en caso contrario, se devolverá un mensaje de error.
+
+Ejemplo de uso:
+```
+node dist/src/index.js list --user="edusegre"
+```
+
+## Función modifyNote()<a name="id3"></a>
+Para modificar una nota, obligatoriamente se debe pasar por parámetro el `user` (escritor), `title` (título),
+`color` (color al que se desea cambiar) y `body` (contenido por el que se desea cambiar).
+
+Si la nota existe se cambiará el contenido y se devolverá un mensaje informativo. En caso contrario devolverá un mensaje de error.
+
+Ejemplo de uso:
+```
+node dist/src/index.js add --user="edusegre" --title="Yellow note" --body="This is a yellow note" 
+```
+
+## Función readNote()<a name="id4"></a>
+Para leer una nota, obligatoriamente se debe pasar por parámetro el `user` (escritor) y el `title` (título).
+
+Si existe el usuario indicado con la nota especificada se llamará a la función `printcolor()` para que formatee el texto en base al color de la nota. Una vez formateado se devolverá el título
+y el contenido de la nota.
+
+En caso contrario se devolverá un mensaje de error indicando que no existe la nota.
+
+Ejemplo de uso:
+```
+node dist/src/index.js read --user="edusegre" --title="Yellow note"
+```
+
+## Función removeNote()<a name="id5"></a>
+Para borrar una nota, obligatoriamente se debe pasar por parámetro el `user` (escritor) y el `title` (título).
+
+Si existe el usuario indicado con la nota especificada se eliminará la nota. Si el directorio del usuario quede vacío, se eliminará la carpeta para ahorrar espacio y se devolverá un mensaje
+informativo.
+
+En caso de que no se encuentre la nota o no exista el usuario se devolverá un mensaje de error indicando que no se pudo encontrar.
+
+Ejemplo de uso:
+```
+node dist/src/index.js remove --user="edusegre" --title="Yellow note"
+```

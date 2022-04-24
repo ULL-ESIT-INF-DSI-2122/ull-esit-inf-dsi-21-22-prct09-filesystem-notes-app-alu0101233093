@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { accessSync, constants, writeFileSync, mkdirSync } from 'fs';
+import { accessSync, constants, writeFileSync } from 'fs';
 
 /**
  * Modifica el contenido de una nota ya creada
